@@ -22,7 +22,7 @@ app.get("/", function (req, res) {
 app.get("/api/:date", function (req, res) {
   const date = req.params.date;
   if (!date) {
-    res.json({ unix: new Date.getTime(), utc: new Date().toUTCString() });
+    res.json({ unix: new Date().getTime(), utc: new Date().toUTCString() });
   }
   if (isNaN(date)) {
     const d = new Date(date);
@@ -42,6 +42,9 @@ app.get("/api/:date", function (req, res) {
   res.json({ unix: d.getTime(), utc: d.toUTCString() });
 });
 
+app.get("/api/", (req, res) => {
+  res.json({ unix: new Date().getTime(), utc: new Date().toUTCString() });
+});
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
   console.log("Your app is listening on port " + listener.address().port);
