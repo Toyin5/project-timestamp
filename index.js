@@ -42,7 +42,7 @@ app.get("/api/:date", function (req, res) {
   res.json({ unix: d.getTime(), utc: d.toUTCString() });
 });
 
-app.get("/api/", (req, res) => {
+app.get("/api", (req, res) => {
   res.json({ unix: Date.now(), utc: new Date().toGMTString() });
 });
 // listen for requests :)
