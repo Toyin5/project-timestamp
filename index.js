@@ -43,7 +43,7 @@ app.get("/api/:date", function (req, res) {
 });
 
 app.get("/api/", (req, res) => {
-  res.json({ unix: new Date().getTime(), utc: new Date().toUTCString() });
+  res.json({ unix: new Date().toTimeString(), utc: new Date().toTimeString() });
 });
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
